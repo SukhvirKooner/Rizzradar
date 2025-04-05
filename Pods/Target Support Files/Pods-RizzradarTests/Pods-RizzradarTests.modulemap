@@ -1,0 +1,6 @@
+framework module Pods_RizzradarTests {
+  umbrella header "Pods-RizzradarTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
