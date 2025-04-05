@@ -1,13 +1,11 @@
 //
-//  NearbyFriendsUITests.swift
-//  NearbyFriendsUITests
-//
-//  Created by Sukhvir Singh on 05/04/25.
+//  RizzradarUITests.swift
+//  RizzradarUITests
 //
 
 import XCTest
 
-final class NearbyFriendsUITests: XCTestCase {
+final class RizzradarUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -15,7 +13,7 @@ final class NearbyFriendsUITests: XCTestCase {
         // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
 
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
+        // In UI tests it's important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
 
     override func tearDownWithError() throws {

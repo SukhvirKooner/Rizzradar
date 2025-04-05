@@ -12,37 +12,50 @@
 			containerPortal = 9C5F4A7C2DA149E900CC9332 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 9C5F4A832DA149E900CC9332;
-			remoteInfo = NearbyFriends;
+			remoteInfo = Rizzradar;
 		};
 		9C5F4A9F2DA149EB00CC9332 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9C5F4A7C2DA149E900CC9332 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 9C5F4A832DA149E900CC9332;
-			remoteInfo = NearbyFriends;
+			remoteInfo = Rizzradar;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		9C5F4A842DA149E900CC9332 /* NearbyFriends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NearbyFriends.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		9C5F4A942DA149EB00CC9332 /* NearbyFriendsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NearbyFriendsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9C5F4A9E2DA149EB00CC9332 /* NearbyFriendsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NearbyFriendsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C5F4A842DA149E900CC9332 /* Rizzradar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rizzradar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C5F4A942DA149EB00CC9332 /* RizzradarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RizzradarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C5F4A9E2DA149EB00CC9332 /* RizzradarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RizzradarUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		9C5F4AB82DA14B1200CC9332 /* Exceptions for "Rizzradar" folder in "Rizzradar" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 9C5F4A832DA149E900CC9332 /* Rizzradar */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		9C5F4A862DA149E900CC9332 /* NearbyFriends */ = {
+		9C5F4A862DA149E900CC9332 /* Rizzradar */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = NearbyFriends;
+			exceptions = (
+				9C5F4AB82DA14B1200CC9332 /* Exceptions for "Rizzradar" folder in "Rizzradar" target */,
+			);
+			path = Rizzradar;
 			sourceTree = "<group>";
 		};
-		9C5F4A972DA149EB00CC9332 /* NearbyFriendsTests */ = {
+		9C5F4A972DA149EB00CC9332 /* RizzradarTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = NearbyFriendsTests;
+			path = RizzradarTests;
 			sourceTree = "<group>";
 		};
-		9C5F4AA12DA149EB00CC9332 /* NearbyFriendsUITests */ = {
+		9C5F4AA12DA149EB00CC9332 /* RizzradarUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = NearbyFriendsUITests;
+			path = RizzradarUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -75,9 +88,9 @@
 		9C5F4A7B2DA149E900CC9332 = {
 			isa = PBXGroup;
 			children = (
-				9C5F4A862DA149E900CC9332 /* NearbyFriends */,
-				9C5F4A972DA149EB00CC9332 /* NearbyFriendsTests */,
-				9C5F4AA12DA149EB00CC9332 /* NearbyFriendsUITests */,
+				9C5F4A862DA149E900CC9332 /* Rizzradar */,
+				9C5F4A972DA149EB00CC9332 /* RizzradarTests */,
+				9C5F4AA12DA149EB00CC9332 /* RizzradarUITests */,
 				9C5F4A852DA149E900CC9332 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -85,9 +98,9 @@
 		9C5F4A852DA149E900CC9332 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9C5F4A842DA149E900CC9332 /* NearbyFriends.app */,
-				9C5F4A942DA149EB00CC9332 /* NearbyFriendsTests.xctest */,
-				9C5F4A9E2DA149EB00CC9332 /* NearbyFriendsUITests.xctest */,
+				9C5F4A842DA149E900CC9332 /* Rizzradar.app */,
+				9C5F4A942DA149EB00CC9332 /* RizzradarTests.xctest */,
+				9C5F4A9E2DA149EB00CC9332 /* RizzradarUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -95,9 +108,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		9C5F4A832DA149E900CC9332 /* NearbyFriends */ = {
+		9C5F4A832DA149E900CC9332 /* Rizzradar */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9C5F4AA82DA149EB00CC9332 /* Build configuration list for PBXNativeTarget "NearbyFriends" */;
+			buildConfigurationList = 9C5F4AA82DA149EB00CC9332 /* Build configuration list for PBXNativeTarget "Rizzradar" */;
 			buildPhases = (
 				9C5F4A802DA149E900CC9332 /* Sources */,
 				9C5F4A812DA149E900CC9332 /* Frameworks */,
@@ -108,18 +121,18 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				9C5F4A862DA149E900CC9332 /* NearbyFriends */,
+				9C5F4A862DA149E900CC9332 /* Rizzradar */,
 			);
-			name = NearbyFriends;
+			name = Rizzradar;
 			packageProductDependencies = (
 			);
-			productName = NearbyFriends;
-			productReference = 9C5F4A842DA149E900CC9332 /* NearbyFriends.app */;
+			productName = Rizzradar;
+			productReference = 9C5F4A842DA149E900CC9332 /* Rizzradar.app */;
 			productType = "com.apple.product-type.application";
 		};
-		9C5F4A932DA149EB00CC9332 /* NearbyFriendsTests */ = {
+		9C5F4A932DA149EB00CC9332 /* RizzradarTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9C5F4AAB2DA149EB00CC9332 /* Build configuration list for PBXNativeTarget "NearbyFriendsTests" */;
+			buildConfigurationList = 9C5F4AAB2DA149EB00CC9332 /* Build configuration list for PBXNativeTarget "RizzradarTests" */;
 			buildPhases = (
 				9C5F4A902DA149EB00CC9332 /* Sources */,
 				9C5F4A912DA149EB00CC9332 /* Frameworks */,
@@ -131,18 +144,18 @@
 				9C5F4A962DA149EB00CC9332 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				9C5F4A972DA149EB00CC9332 /* NearbyFriendsTests */,
+				9C5F4A972DA149EB00CC9332 /* RizzradarTests */,
 			);
-			name = NearbyFriendsTests;
+			name = RizzradarTests;
 			packageProductDependencies = (
 			);
-			productName = NearbyFriendsTests;
-			productReference = 9C5F4A942DA149EB00CC9332 /* NearbyFriendsTests.xctest */;
+			productName = RizzradarTests;
+			productReference = 9C5F4A942DA149EB00CC9332 /* RizzradarTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		9C5F4A9D2DA149EB00CC9332 /* NearbyFriendsUITests */ = {
+		9C5F4A9D2DA149EB00CC9332 /* RizzradarUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9C5F4AAE2DA149EB00CC9332 /* Build configuration list for PBXNativeTarget "NearbyFriendsUITests" */;
+			buildConfigurationList = 9C5F4AAE2DA149EB00CC9332 /* Build configuration list for PBXNativeTarget "RizzradarUITests" */;
 			buildPhases = (
 				9C5F4A9A2DA149EB00CC9332 /* Sources */,
 				9C5F4A9B2DA149EB00CC9332 /* Frameworks */,
@@ -154,13 +167,13 @@
 				9C5F4AA02DA149EB00CC9332 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				9C5F4AA12DA149EB00CC9332 /* NearbyFriendsUITests */,
+				9C5F4AA12DA149EB00CC9332 /* RizzradarUITests */,
 			);
-			name = NearbyFriendsUITests;
+			name = RizzradarUITests;
 			packageProductDependencies = (
 			);
-			productName = NearbyFriendsUITests;
-			productReference = 9C5F4A9E2DA149EB00CC9332 /* NearbyFriendsUITests.xctest */;
+			productName = RizzradarUITests;
+			productReference = 9C5F4A9E2DA149EB00CC9332 /* RizzradarUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -186,7 +199,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 9C5F4A7F2DA149E900CC9332 /* Build configuration list for PBXProject "NearbyFriends" */;
+			buildConfigurationList = 9C5F4A7F2DA149E900CC9332 /* Build configuration list for PBXProject "Rizzradar" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -200,9 +213,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9C5F4A832DA149E900CC9332 /* NearbyFriends */,
-				9C5F4A932DA149EB00CC9332 /* NearbyFriendsTests */,
-				9C5F4A9D2DA149EB00CC9332 /* NearbyFriendsUITests */,
+				9C5F4A832DA149E900CC9332 /* Rizzradar */,
+				9C5F4A932DA149EB00CC9332 /* RizzradarTests */,
+				9C5F4A9D2DA149EB00CC9332 /* RizzradarUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -258,12 +271,12 @@
 /* Begin PBXTargetDependency section */
 		9C5F4A962DA149EB00CC9332 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 9C5F4A832DA149E900CC9332 /* NearbyFriends */;
+			target = 9C5F4A832DA149E900CC9332 /* Rizzradar */;
 			targetProxy = 9C5F4A952DA149EB00CC9332 /* PBXContainerItemProxy */;
 		};
 		9C5F4AA02DA149EB00CC9332 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 9C5F4A832DA149E900CC9332 /* NearbyFriends */;
+			target = 9C5F4A832DA149E900CC9332 /* Rizzradar */;
 			targetProxy = 9C5F4A9F2DA149EB00CC9332 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -395,11 +408,15 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"NearbyFriends/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Rizzradar/Preview Content\"";
 				DEVELOPMENT_TEAM = G3QFND2Y25;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = Rizzradar/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Rizzradar;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "This app uses Bluetooth to find nearby friends.";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "This app uses Bluetooth to find nearby friends.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app uses your location to determine the direction of nearby friends.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -409,7 +426,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = rizz.NearbyFriends;
+				PRODUCT_BUNDLE_IDENTIFIER = rizz12.Rizzradar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -424,11 +441,15 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"NearbyFriends/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Rizzradar/Preview Content\"";
 				DEVELOPMENT_TEAM = G3QFND2Y25;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = Rizzradar/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Rizzradar;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "This app uses Bluetooth to find nearby friends.";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "This app uses Bluetooth to find nearby friends.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app uses your location to determine the direction of nearby friends.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -438,7 +459,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = rizz.NearbyFriends;
+				PRODUCT_BUNDLE_IDENTIFIER = rizz12.Rizzradar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -456,12 +477,12 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = rizz.NearbyFriendsTests;
+				PRODUCT_BUNDLE_IDENTIFIER = rizz.RizzradarTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NearbyFriends.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/NearbyFriends";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Rizzradar.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Rizzradar";
 			};
 			name = Debug;
 		};
@@ -475,12 +496,12 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = rizz.NearbyFriendsTests;
+				PRODUCT_BUNDLE_IDENTIFIER = rizz.RizzradarTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NearbyFriends.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/NearbyFriends";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Rizzradar.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Rizzradar";
 			};
 			name = Release;
 		};
@@ -492,12 +513,12 @@
 				DEVELOPMENT_TEAM = G3QFND2Y25;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = rizz.NearbyFriendsUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = rizz.RizzradarUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = NearbyFriends;
+				TEST_TARGET_NAME = Rizzradar;
 			};
 			name = Debug;
 		};
@@ -509,19 +530,19 @@
 				DEVELOPMENT_TEAM = G3QFND2Y25;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = rizz.NearbyFriendsUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = rizz.RizzradarUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = NearbyFriends;
+				TEST_TARGET_NAME = Rizzradar;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9C5F4A7F2DA149E900CC9332 /* Build configuration list for PBXProject "NearbyFriends" */ = {
+		9C5F4A7F2DA149E900CC9332 /* Build configuration list for PBXProject "Rizzradar" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9C5F4AA62DA149EB00CC9332 /* Debug */,
@@ -530,7 +551,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9C5F4AA82DA149EB00CC9332 /* Build configuration list for PBXNativeTarget "NearbyFriends" */ = {
+		9C5F4AA82DA149EB00CC9332 /* Build configuration list for PBXNativeTarget "Rizzradar" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9C5F4AA92DA149EB00CC9332 /* Debug */,
@@ -539,7 +560,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9C5F4AAB2DA149EB00CC9332 /* Build configuration list for PBXNativeTarget "NearbyFriendsTests" */ = {
+		9C5F4AAB2DA149EB00CC9332 /* Build configuration list for PBXNativeTarget "RizzradarTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9C5F4AAC2DA149EB00CC9332 /* Debug */,
@@ -548,7 +569,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9C5F4AAE2DA149EB00CC9332 /* Build configuration list for PBXNativeTarget "NearbyFriendsUITests" */ = {
+		9C5F4AAE2DA149EB00CC9332 /* Build configuration list for PBXNativeTarget "RizzradarUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9C5F4AAF2DA149EB00CC9332 /* Debug */,

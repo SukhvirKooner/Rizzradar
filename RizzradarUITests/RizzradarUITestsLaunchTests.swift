@@ -1,13 +1,13 @@
 //
-//  NearbyFriendsUITestsLaunchTests.swift
-//  NearbyFriendsUITests
+//  RizzradarUITestsLaunchTests.swift
+//  RizzradarUITests
 //
 //  Created by Sukhvir Singh on 05/04/25.
 //
 
 import XCTest
 
-final class NearbyFriendsUITestsLaunchTests: XCTestCase {
+final class RizzradarUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true
