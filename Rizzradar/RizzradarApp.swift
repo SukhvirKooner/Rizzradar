@@ -7,6 +7,7 @@ struct RizzradarApp: App {
             ContentView()
                 .environmentObject(BluetoothManager.shared)
                 .environmentObject(LocationManager.shared)
+                .environmentObject(AuthService.shared)
         }
     }
 }

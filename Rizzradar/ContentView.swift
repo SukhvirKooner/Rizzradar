@@ -3,6 +3,33 @@ import SwiftUI
 struct ContentView: View {
     @EnvironmentObject var bluetoothManager: BluetoothManager
     @EnvironmentObject var locationManager: LocationManager
+    @StateObject private var authService = AuthService.shared
+    
+    var body: some View {
+        if authService.isAuthenticated {
+            TabView {
+                NearbyFriendsView()
+                    .environmentObject(bluetoothManager)
+                    .environmentObject(locationManager)
+                    .tabItem {
+                        Label("Nearby", systemImage: "person.2.fill")
+                    }
+                
+                GroupsView()
+                    .tabItem {
+                        Label("Groups", systemImage: "person.3.fill")
+                    }
+            }
+        } else {
+            AuthView()
+        }
+    }
+}
+
+struct NearbyFriendsView: View {
+    @EnvironmentObject var bluetoothManager: BluetoothManager
+    @EnvironmentObject var locationManager: LocationManager
+    @EnvironmentObject var authService: AuthService
     
     var body: some View {
         NavigationView {
@@ -34,14 +61,27 @@ struct ContentView: View {
             .navigationTitle("Nearby Friends")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {
-                        if bluetoothManager.isScanning {
-                            bluetoothManager.stopScanning()
-                        } else {
-                            bluetoothManager.startScanning()
+                    Menu {
+                        Button(action: {
+                            if bluetoothManager.isScanning {
+                                bluetoothManager.stopScanning()
+                            } else {
+                                bluetoothManager.startScanning()
+                            }
+                        }) {
+                            Label(
+                                bluetoothManager.isScanning ? "Stop Scanning" : "Start Scanning",
+                                systemImage: bluetoothManager.isScanning ? "stop.circle" : "play.circle"
+                            )
                         }
-                    }) {
-                        Image(systemName: bluetoothManager.isScanning ? "stop.circle" : "play.circle")
+                        
+                        Button(role: .destructive, action: {
+                            authService.signOut()
+                        }) {
+                            Label("Sign Out", systemImage: "rectangle.portrait.and.arrow.right")
+                        }
+                    } label: {
+                        Image(systemName: "ellipsis.circle")
                     }
                 }
             }
@@ -86,4 +126,5 @@ struct DeviceRow: View {
     ContentView()
         .environmentObject(BluetoothManager.shared)
         .environmentObject(LocationManager.shared)
+        .environmentObject(AuthService.shared)
 } 
