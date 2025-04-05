@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1CA7E03BDF32FB2D524313F9 /* Pods_Rizzradar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FE12562A4CE067EB08E9391 /* Pods_Rizzradar.framework */; };
-		BEA02ECEA572C2363F435676 /* Pods_RizzradarTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BF3624B6B607F2A415BCEB9 /* Pods_RizzradarTests.framework */; };
-		E0A491C9A40912CB983A1F80 /* Pods_RizzradarUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F201B1A31A1F50E2DBD34130 /* Pods_RizzradarUITests.framework */; };
+		5A214117E0F659FC67B0BEEE /* Pods_Rizzradar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5D366140773D2A10C42979E /* Pods_Rizzradar.framework */; };
+		7894B454465B86C89280B33A /* Pods_RizzradarTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1549D13F3C10BE8A85BA2681 /* Pods_RizzradarTests.framework */; };
+		E2D3A83B8F396B0C3C7E86EF /* Pods_RizzradarUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E94E930089FF146E5B718B93 /* Pods_RizzradarUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,18 +30,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1E4B3C7CEE7AE690EF26CC32 /* Pods-RizzradarUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RizzradarUITests.debug.xcconfig"; path = "Target Support Files/Pods-RizzradarUITests/Pods-RizzradarUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		2762AE45193C8C3852CBBE30 /* Pods-RizzradarTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RizzradarTests.release.xcconfig"; path = "Target Support Files/Pods-RizzradarTests/Pods-RizzradarTests.release.xcconfig"; sourceTree = "<group>"; };
-		2C0FD0C7F129EBE16B83591A /* Pods-RizzradarUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RizzradarUITests.release.xcconfig"; path = "Target Support Files/Pods-RizzradarUITests/Pods-RizzradarUITests.release.xcconfig"; sourceTree = "<group>"; };
-		5BF3624B6B607F2A415BCEB9 /* Pods_RizzradarTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RizzradarTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6FE12562A4CE067EB08E9391 /* Pods_Rizzradar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rizzradar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		75325322B9A87AD74E62E105 /* Pods-Rizzradar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rizzradar.debug.xcconfig"; path = "Target Support Files/Pods-Rizzradar/Pods-Rizzradar.debug.xcconfig"; sourceTree = "<group>"; };
+		0AA070980A6F07FBEF29E586 /* Pods-RizzradarUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RizzradarUITests.debug.xcconfig"; path = "Target Support Files/Pods-RizzradarUITests/Pods-RizzradarUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		1549D13F3C10BE8A85BA2681 /* Pods_RizzradarTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RizzradarTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		218223139E89C0B558F7AF66 /* Pods-RizzradarTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RizzradarTests.debug.xcconfig"; path = "Target Support Files/Pods-RizzradarTests/Pods-RizzradarTests.debug.xcconfig"; sourceTree = "<group>"; };
+		2DAEADF4B05D0F2C56F4BE32 /* Pods-Rizzradar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rizzradar.release.xcconfig"; path = "Target Support Files/Pods-Rizzradar/Pods-Rizzradar.release.xcconfig"; sourceTree = "<group>"; };
+		4C39EDBF17DB51799AC47E95 /* Pods-RizzradarTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RizzradarTests.release.xcconfig"; path = "Target Support Files/Pods-RizzradarTests/Pods-RizzradarTests.release.xcconfig"; sourceTree = "<group>"; };
+		685868BE2EFE286952E8184A /* Pods-Rizzradar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rizzradar.debug.xcconfig"; path = "Target Support Files/Pods-Rizzradar/Pods-Rizzradar.debug.xcconfig"; sourceTree = "<group>"; };
 		9C5F4A842DA149E900CC9332 /* Rizzradar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rizzradar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C5F4A942DA149EB00CC9332 /* RizzradarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RizzradarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C5F4A9E2DA149EB00CC9332 /* RizzradarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RizzradarUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9D0483DE4B0058FA297414DA /* Pods-Rizzradar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rizzradar.release.xcconfig"; path = "Target Support Files/Pods-Rizzradar/Pods-Rizzradar.release.xcconfig"; sourceTree = "<group>"; };
-		B8BD32EF61E9DF8A8EC26C22 /* Pods-RizzradarTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RizzradarTests.debug.xcconfig"; path = "Target Support Files/Pods-RizzradarTests/Pods-RizzradarTests.debug.xcconfig"; sourceTree = "<group>"; };
-		F201B1A31A1F50E2DBD34130 /* Pods_RizzradarUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RizzradarUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5D366140773D2A10C42979E /* Pods_Rizzradar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rizzradar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C123C022372EFF80E39E7C3F /* Pods-RizzradarUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RizzradarUITests.release.xcconfig"; path = "Target Support Files/Pods-RizzradarUITests/Pods-RizzradarUITests.release.xcconfig"; sourceTree = "<group>"; };
+		E94E930089FF146E5B718B93 /* Pods_RizzradarUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RizzradarUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -65,11 +65,15 @@
 		};
 		9C5F4A972DA149EB00CC9332 /* RizzradarTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
 			path = RizzradarTests;
 			sourceTree = "<group>";
 		};
 		9C5F4AA12DA149EB00CC9332 /* RizzradarUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
 			path = RizzradarUITests;
 			sourceTree = "<group>";
 		};
@@ -80,7 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1CA7E03BDF32FB2D524313F9 /* Pods_Rizzradar.framework in Frameworks */,
+				5A214117E0F659FC67B0BEEE /* Pods_Rizzradar.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,7 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BEA02ECEA572C2363F435676 /* Pods_RizzradarTests.framework in Frameworks */,
+				7894B454465B86C89280B33A /* Pods_RizzradarTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,22 +100,32 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E0A491C9A40912CB983A1F80 /* Pods_RizzradarUITests.framework in Frameworks */,
+				E2D3A83B8F396B0C3C7E86EF /* Pods_RizzradarUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		518D30F60FAD6894D576B85D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B5D366140773D2A10C42979E /* Pods_Rizzradar.framework */,
+				1549D13F3C10BE8A85BA2681 /* Pods_RizzradarTests.framework */,
+				E94E930089FF146E5B718B93 /* Pods_RizzradarUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		90B4338438A961444E66B470 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				75325322B9A87AD74E62E105 /* Pods-Rizzradar.debug.xcconfig */,
-				9D0483DE4B0058FA297414DA /* Pods-Rizzradar.release.xcconfig */,
-				B8BD32EF61E9DF8A8EC26C22 /* Pods-RizzradarTests.debug.xcconfig */,
-				2762AE45193C8C3852CBBE30 /* Pods-RizzradarTests.release.xcconfig */,
-				1E4B3C7CEE7AE690EF26CC32 /* Pods-RizzradarUITests.debug.xcconfig */,
-				2C0FD0C7F129EBE16B83591A /* Pods-RizzradarUITests.release.xcconfig */,
+				685868BE2EFE286952E8184A /* Pods-Rizzradar.debug.xcconfig */,
+				2DAEADF4B05D0F2C56F4BE32 /* Pods-Rizzradar.release.xcconfig */,
+				218223139E89C0B558F7AF66 /* Pods-RizzradarTests.debug.xcconfig */,
+				4C39EDBF17DB51799AC47E95 /* Pods-RizzradarTests.release.xcconfig */,
+				0AA070980A6F07FBEF29E586 /* Pods-RizzradarUITests.debug.xcconfig */,
+				C123C022372EFF80E39E7C3F /* Pods-RizzradarUITests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -124,7 +138,7 @@
 				9C5F4AA12DA149EB00CC9332 /* RizzradarUITests */,
 				9C5F4A852DA149E900CC9332 /* Products */,
 				90B4338438A961444E66B470 /* Pods */,
-				FCBD7205887C611FFD68AC23 /* Frameworks */,
+				518D30F60FAD6894D576B85D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -138,16 +152,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		FCBD7205887C611FFD68AC23 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				6FE12562A4CE067EB08E9391 /* Pods_Rizzradar.framework */,
-				5BF3624B6B607F2A415BCEB9 /* Pods_RizzradarTests.framework */,
-				F201B1A31A1F50E2DBD34130 /* Pods_RizzradarUITests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -155,11 +159,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9C5F4AA82DA149EB00CC9332 /* Build configuration list for PBXNativeTarget "Rizzradar" */;
 			buildPhases = (
-				FF6CF778AE5F99BB58C89868 /* [CP] Check Pods Manifest.lock */,
+				3AF62F728CE5E87CE1F8D2C9 /* [CP] Check Pods Manifest.lock */,
 				9C5F4A802DA149E900CC9332 /* Sources */,
 				9C5F4A812DA149E900CC9332 /* Frameworks */,
 				9C5F4A822DA149E900CC9332 /* Resources */,
-				19B79A1D0FA4AE5861AC39EB /* [CP] Embed Pods Frameworks */,
+				0C596D38AD7CDE45DB286E9D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -177,7 +181,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9C5F4AAB2DA149EB00CC9332 /* Build configuration list for PBXNativeTarget "RizzradarTests" */;
 			buildPhases = (
-				2959AE3C96061E7F9A1C128B /* [CP] Check Pods Manifest.lock */,
+				48A4692E537FA1B03529C222 /* [CP] Check Pods Manifest.lock */,
 				9C5F4A902DA149EB00CC9332 /* Sources */,
 				9C5F4A912DA149EB00CC9332 /* Frameworks */,
 				9C5F4A922DA149EB00CC9332 /* Resources */,
@@ -199,7 +203,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9C5F4AAE2DA149EB00CC9332 /* Build configuration list for PBXNativeTarget "RizzradarUITests" */;
 			buildPhases = (
-				13DE73A0FE80EF7F05934D59 /* [CP] Check Pods Manifest.lock */,
+				84243CA81BD2D07ADC8F4144 /* [CP] Check Pods Manifest.lock */,
 				9C5F4A9A2DA149EB00CC9332 /* Sources */,
 				9C5F4A9B2DA149EB00CC9332 /* Frameworks */,
 				9C5F4A9C2DA149EB00CC9332 /* Resources */,
@@ -286,29 +290,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		13DE73A0FE80EF7F05934D59 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-RizzradarUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		19B79A1D0FA4AE5861AC39EB /* [CP] Embed Pods Frameworks */ = {
+		0C596D38AD7CDE45DB286E9D /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -325,7 +307,29 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Rizzradar/Pods-Rizzradar-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		2959AE3C96061E7F9A1C128B /* [CP] Check Pods Manifest.lock */ = {
+		3AF62F728CE5E87CE1F8D2C9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Rizzradar-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		48A4692E537FA1B03529C222 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -347,7 +351,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		FF6CF778AE5F99BB58C89868 /* [CP] Check Pods Manifest.lock */ = {
+		84243CA81BD2D07ADC8F4144 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -362,7 +366,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Rizzradar-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-RizzradarUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -530,7 +534,7 @@
 		};
 		9C5F4AA92DA149EB00CC9332 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 75325322B9A87AD74E62E105 /* Pods-Rizzradar.debug.xcconfig */;
+			baseConfigurationReference = 685868BE2EFE286952E8184A /* Pods-Rizzradar.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -566,7 +570,7 @@
 		};
 		9C5F4AAA2DA149EB00CC9332 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9D0483DE4B0058FA297414DA /* Pods-Rizzradar.release.xcconfig */;
+			baseConfigurationReference = 2DAEADF4B05D0F2C56F4BE32 /* Pods-Rizzradar.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -602,7 +606,7 @@
 		};
 		9C5F4AAC2DA149EB00CC9332 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B8BD32EF61E9DF8A8EC26C22 /* Pods-RizzradarTests.debug.xcconfig */;
+			baseConfigurationReference = 218223139E89C0B558F7AF66 /* Pods-RizzradarTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -622,7 +626,7 @@
 		};
 		9C5F4AAD2DA149EB00CC9332 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2762AE45193C8C3852CBBE30 /* Pods-RizzradarTests.release.xcconfig */;
+			baseConfigurationReference = 4C39EDBF17DB51799AC47E95 /* Pods-RizzradarTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -642,7 +646,7 @@
 		};
 		9C5F4AAF2DA149EB00CC9332 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1E4B3C7CEE7AE690EF26CC32 /* Pods-RizzradarUITests.debug.xcconfig */;
+			baseConfigurationReference = 0AA070980A6F07FBEF29E586 /* Pods-RizzradarUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -660,7 +664,7 @@
 		};
 		9C5F4AB02DA149EB00CC9332 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2C0FD0C7F129EBE16B83591A /* Pods-RizzradarUITests.release.xcconfig */;
+			baseConfigurationReference = C123C022372EFF80E39E7C3F /* Pods-RizzradarUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;

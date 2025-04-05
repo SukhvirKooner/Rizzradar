@@ -1,5 +1,140 @@
 import SwiftUI
 
+// MARK: - Create Group Sheet View
+struct CreateGroupSheet: View {
+    @Environment(\.dismiss) var dismiss
+    @EnvironmentObject var bluetoothManager: BluetoothManager
+    @Binding var groupName: String
+    @Binding var password: String
+    
+    var body: some View {
+        NavigationView {
+            Form {
+                Section(header: Text("Group Details")) {
+                    TextField("Group Name", text: $groupName)
+                    SecureField("Password", text: $password)
+                }
+            }
+            .navigationTitle("Create Group")
+            .navigationBarItems(
+                leading: Button("Cancel") {
+                    dismiss()
+                },
+                trailing: Button("Create") {
+                    bluetoothManager.createGroup(name: groupName, password: password)
+                    dismiss()
+                }
+                .disabled(groupName.isEmpty || password.isEmpty)
+            )
+        }
+    }
+}
+
+// MARK: - Join Group Sheet View
+struct JoinGroupSheet: View {
+    @Environment(\.dismiss) var dismiss
+    @EnvironmentObject var bluetoothManager: BluetoothManager
+    let selectedGroup: Group?
+    @Binding var joinPassword: String
+    
+    var body: some View {
+        NavigationView {
+            Form {
+                Section(header: Text("Join Group")) {
+                    if let group = selectedGroup {
+                        Text(group.name)
+                            .font(.headline)
+                        SecureField("Password", text: $joinPassword)
+                    }
+                }
+            }
+            .navigationTitle("Join Group")
+            .navigationBarItems(
+                leading: Button("Cancel") {
+                    dismiss()
+                },
+                trailing: Button("Join") {
+                    if let group = selectedGroup {
+                        bluetoothManager.joinGroup(group, withPassword: joinPassword)
+                    }
+                    dismiss()
+                }
+                .disabled(joinPassword.isEmpty)
+            )
+        }
+    }
+}
+
+// MARK: - Group Info View
+private struct GroupInfoView: View {
+    let name: String
+    let isHost: Bool
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text(name)
+                .font(.headline)
+            Text(isHost ? "Host" : "Member")
+                .font(.subheadline)
+                .foregroundColor(.secondary)
+        }
+    }
+}
+
+// MARK: - Current Group Section View
+struct CurrentGroupSection: View {
+    let currentGroup: Group
+    @EnvironmentObject var bluetoothManager: BluetoothManager
+    @State private var pendingRequestsData: [UUID: JoinRequestData] = [:]
+    
+    var body: some View {
+        Section {
+            LazyVStack(alignment: .leading, spacing: 8) {
+                GroupInfoView(name: currentGroup.name, isHost: currentGroup.isHost)
+                
+                if currentGroup.isHost {
+                    ForEach(currentGroup.pendingRequests, id: \.self) { userId in
+                        HStack {
+                            Text("Join Request")
+                                .font(.subheadline)
+                            Spacer()
+                            Button("Approve") {
+                                let requestData = JoinRequestData(
+                                    deviceName: "Unknown Device",
+                                    passwordHash: currentGroup.passwordHash
+                                )
+                                bluetoothManager.approveJoinRequest(for: userId, requestData: requestData)
+                            }
+                            .buttonStyle(.bordered)
+                            Button("Deny") {
+                                bluetoothManager.denyJoinRequest(for: userId)
+                            }
+                            .buttonStyle(.bordered)
+                            .tint(.red)
+                        }
+                    }
+                    
+                    ForEach(currentGroup.members, id: \.self) { memberId in
+                        HStack {
+                            Text(memberId == currentGroup.hostId ? "👑 Host" : "👤 Member")
+                            Spacer()
+                            if let deviceId = UIDevice.current.identifierForVendor {
+                                if memberId == deviceId {
+                                    Text("(You)")
+                                        .foregroundColor(.secondary)
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        } header: {
+            Text("Current Group")
+        }
+    }
+}
+
+// MARK: - Main View
 struct GroupManagementView: View {
     @EnvironmentObject var bluetoothManager: BluetoothManager
     @State private var showingCreateGroupSheet = false
@@ -14,52 +149,10 @@ struct GroupManagementView: View {
     var body: some View {
         NavigationView {
             List {
-                // Current Group Section
                 if let currentGroup = bluetoothManager.currentGroup {
-                    Section("Current Group") {
-                        VStack(alignment: .leading) {
-                            Text(currentGroup.name)
-                                .font(.headline)
-                            Text(currentGroup.isHost ? "Host" : "Member")
-                                .font(.subheadline)
-                                .foregroundColor(.secondary)
-                        }
-                        
-                        if currentGroup.isHost {
-                            // Pending Requests
-                            ForEach(currentGroup.pendingRequests, id: \.self) { userId in
-                                HStack {
-                                    Text("Join Request")
-                                        .font(.subheadline)
-                                    Spacer()
-                                    Button("Approve") {
-                                        bluetoothManager.approveJoinRequest(for: userId)
-                                    }
-                                    .buttonStyle(.bordered)
-                                    Button("Deny") {
-                                        bluetoothManager.denyJoinRequest(for: userId)
-                                    }
-                                    .buttonStyle(.bordered)
-                                    .tint(.red)
-                                }
-                            }
-                            
-                            // Members List
-                            ForEach(currentGroup.members, id: \.self) { memberId in
-                                HStack {
-                                    Text(memberId == currentGroup.hostId ? "👑 Host" : "👤 Member")
-                                    Spacer()
-                                    if memberId == UIDevice.current.identifierForVendor {
-                                        Text("(You)")
-                                            .foregroundColor(.secondary)
-                                    }
-                                }
-                            }
-                        }
-                    }
+                    CurrentGroupSection(currentGroup: currentGroup)
                 }
                 
-                // Available Groups Section
                 Section("Available Groups") {
                     if bluetoothManager.discoveredGroups.isEmpty {
                         Text("No groups found nearby")
@@ -97,55 +190,12 @@ struct GroupManagementView: View {
                 }
             }
             .sheet(isPresented: $showingCreateGroupSheet) {
-                NavigationView {
-                    Form {
-                        Section(header: Text("Group Details")) {
-                            TextField("Group Name", text: $groupName)
-                            SecureField("Password", text: $password)
-                        }
-                    }
-                    .navigationTitle("Create Group")
-                    .navigationBarItems(
-                        leading: Button("Cancel") {
-                            showingCreateGroupSheet = false
-                        },
-                        trailing: Button("Create") {
-                            bluetoothManager.createGroup(name: groupName, password: password)
-                            showingCreateGroupSheet = false
-                            groupName = ""
-                            password = ""
-                        }
-                        .disabled(groupName.isEmpty || password.isEmpty)
-                    )
-                }
+                CreateGroupSheet(groupName: $groupName, password: $password)
+                    .environmentObject(bluetoothManager)
             }
             .sheet(isPresented: $showingJoinGroupSheet) {
-                NavigationView {
-                    Form {
-                        Section(header: Text("Join Group")) {
-                            if let group = selectedGroup {
-                                Text(group.name)
-                                    .font(.headline)
-                                SecureField("Password", text: $joinPassword)
-                            }
-                        }
-                    }
-                    .navigationTitle("Join Group")
-                    .navigationBarItems(
-                        leading: Button("Cancel") {
-                            showingJoinGroupSheet = false
-                            joinPassword = ""
-                        },
-                        trailing: Button("Join") {
-                            if let group = selectedGroup {
-                                bluetoothManager.joinGroup(group, withPassword: joinPassword)
-                            }
-                            showingJoinGroupSheet = false
-                            joinPassword = ""
-                        }
-                        .disabled(joinPassword.isEmpty)
-                    )
-                }
+                JoinGroupSheet(selectedGroup: selectedGroup, joinPassword: $joinPassword)
+                    .environmentObject(bluetoothManager)
             }
             .alert("Error", isPresented: $showError) {
                 Button("OK") { }
@@ -159,4 +209,4 @@ struct GroupManagementView: View {
 #Preview {
     GroupManagementView()
         .environmentObject(BluetoothManager.shared)
-} 
+}
