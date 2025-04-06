@@ -33,61 +33,71 @@ struct NearbyFriendsView: View {
     
     var body: some View {
         NavigationView {
-            List {
-                Section {
-                    if bluetoothManager.isScanning {
-                        HStack {
-                            ProgressView()
-                            Text("Scanning for nearby friends...")
-                                .foregroundColor(.secondary)
-                        }
-                    } else {
-                        Text("Not scanning")
+            ZStack {
+                // Main content
+                if !bluetoothManager.discoveredDevices.isEmpty {
+                    // Show the first discovered device
+                    DeviceRow(device: bluetoothManager.discoveredDevices[0])
+                } else if bluetoothManager.isScanning {
+                    // Scanning indicator
+                    VStack {
+                        ProgressView()
+                        Text("Scanning for nearby friends...")
                             .foregroundColor(.secondary)
+                    }
+                } else {
+                    // No friends found
+                    VStack(spacing: 16) {
+                        Text("No friends found nearby")
+                            .foregroundColor(.secondary)
+                        
+                        Button(action: {
+                            bluetoothManager.startScanning()
+                        }) {
+                            Text("Start Scanning")
+                                .foregroundColor(.blue)
+                        }
                     }
                 }
                 
-                Section(header: Text("Nearby Friends")) {
-                    if bluetoothManager.discoveredDevices.isEmpty {
-                        Text("No friends found nearby")
-                            .foregroundColor(.secondary)
-                    } else {
-                        ForEach(bluetoothManager.discoveredDevices) { device in
-                            DeviceRow(device: device)
+                // Menu button
+                VStack {
+                    HStack {
+                        Spacer()
+                        Menu {
+                            Button(action: {
+                                if bluetoothManager.isScanning {
+                                    bluetoothManager.stopScanning()
+                                } else {
+                                    bluetoothManager.startScanning()
+                                }
+                            }) {
+                                Label(
+                                    bluetoothManager.isScanning ? "Stop Scanning" : "Start Scanning",
+                                    systemImage: bluetoothManager.isScanning ? "stop.circle" : "play.circle"
+                                )
+                            }
+                            
+                            Button(role: .destructive, action: {
+                                authService.signOut()
+                            }) {
+                                Label("Sign Out", systemImage: "rectangle.portrait.and.arrow.right")
+                            }
+                        } label: {
+                            Image(systemName: "ellipsis.circle")
+                                .font(.title2)
+                                .foregroundColor(.blue)
                         }
+                        .padding()
                     }
+                    Spacer()
                 }
             }
             .navigationTitle("Nearby Friends")
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Menu {
-                        Button(action: {
-                            if bluetoothManager.isScanning {
-                                bluetoothManager.stopScanning()
-                            } else {
-                                bluetoothManager.startScanning()
-                            }
-                        }) {
-                            Label(
-                                bluetoothManager.isScanning ? "Stop Scanning" : "Start Scanning",
-                                systemImage: bluetoothManager.isScanning ? "stop.circle" : "play.circle"
-                            )
-                        }
-                        
-                        Button(role: .destructive, action: {
-                            authService.signOut()
-                        }) {
-                            Label("Sign Out", systemImage: "rectangle.portrait.and.arrow.right")
-                        }
-                    } label: {
-                        Image(systemName: "ellipsis.circle")
-                    }
-                }
-            }
         }
         .onAppear {
             locationManager.requestAuthorization()
+            bluetoothManager.startScanning()
         }
     }
 }
@@ -97,28 +107,27 @@ struct DeviceRow: View {
     @EnvironmentObject var locationManager: LocationManager
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 4) {
-            Text(device.name)
-                .font(.headline)
+        ZStack {
+            // Main timelapse and distance display
+            Image(systemName: "timelapse")
+                .symbolRenderingMode(.multicolor)
+                .symbolEffect(.variableColor.reversing)
+                .foregroundStyle(.blue.gradient)
+                .font(.system(size: 250))
             
-            HStack {
-                Image(systemName: "rssi")
+            VStack(spacing: 4) {
                 Text(device.formattedDistance)
-                    .foregroundColor(.secondary)
+                    .font(.system(size: 22, weight: .bold))
+                    .foregroundColor(.white)
+                    .minimumScaleFactor(0.5)
+                    .lineLimit(1)
                 
-                if let heading = locationManager.heading {
-                    Text("•")
-                        .foregroundColor(.secondary)
-                    Text(locationManager.getRelativeDirection(
-                        to: heading.trueHeading,
-                        from: heading.trueHeading
-                    ))
+                // Device name below
+                Text(device.name)
+                    .font(.caption)
                     .foregroundColor(.secondary)
-                }
             }
-            .font(.subheadline)
         }
-        .padding(.vertical, 4)
     }
 }
 
@@ -128,3 +137,4 @@ struct DeviceRow: View {
         .environmentObject(LocationManager.shared)
         .environmentObject(AuthService.shared)
 } 
+
