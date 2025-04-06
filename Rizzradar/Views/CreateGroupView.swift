@@ -2,73 +2,66 @@ import SwiftUI
 
 struct CreateGroupView: View {
     @Environment(\.dismiss) private var dismiss
+    @StateObject private var groupService = GroupService.shared
+    
     @State private var name = ""
     @State private var description = ""
-    @State private var isLoading = false
-    @State private var errorMessage: String?
-    
-    let onComplete: (Bool) -> Void
+    @State private var showingError = false
+    @State private var errorMessage = ""
     
     var body: some View {
-        NavigationView {
-            Form {
-                Section {
-                    TextField("Group Name", text: $name)
-                    TextField("Description (Optional)", text: $description)
-                }
+        Form {
+            Section {
+                TextField("Group Name", text: $name)
+                    .textContentType(.name)
+                    .autocapitalization(.words)
                 
-                Section {
-                    Button(action: createGroup) {
-                        if isLoading {
-                            ProgressView()
-                        } else {
-                            Text("Create Group")
-                        }
-                    }
-                    .disabled(name.isEmpty || isLoading)
-                }
+                TextField("Description (Optional)", text: $description)
+                    .textContentType(.none)
+                    .autocapitalization(.sentences)
             }
-            .navigationTitle("Create Group")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button("Cancel") {
-                        dismiss()
+            
+            Section {
+                Button(action: createGroup) {
+                    if groupService.isLoading {
+                        ProgressView()
+                            .frame(maxWidth: .infinity)
+                    } else {
+                        Text("Create Group")
+                            .frame(maxWidth: .infinity)
                     }
                 }
+                .disabled(name.isEmpty || groupService.isLoading)
             }
-            .alert("Error", isPresented: .constant(errorMessage != nil)) {
-                Button("OK") { errorMessage = nil }
-            } message: {
-                Text(errorMessage ?? "")
+        }
+        .alert("Error", isPresented: $showingError) {
+            Button("OK", role: .cancel) {}
+        } message: {
+            Text(errorMessage)
+        }
+        .onChange(of: groupService.error) { error in
+            if let error = error {
+                errorMessage = error
+                showingError = true
             }
         }
     }
     
     private func createGroup() {
-        isLoading = true
         Task {
             do {
-                _ = try await GroupService.shared.createGroup(
-                    name: name,
-                    description: description.isEmpty ? nil : description
-                )
-                await MainActor.run {
-                    onComplete(true)
-                    dismiss()
-                }
+                _ = try await groupService.createGroup(name: name, description: description.isEmpty ? nil : description)
+                dismiss()
             } catch {
-                await MainActor.run {
-                    errorMessage = error.localizedDescription
-                    isLoading = false
-                }
+                errorMessage = error.localizedDescription
+                showingError = true
             }
         }
     }
 }
 
-struct CreateGroupView_Previews: PreviewProvider {
-    static var previews: some View {
-        CreateGroupView { _ in }
+#Preview {
+    NavigationView {
+        CreateGroupView()
     }
 } 

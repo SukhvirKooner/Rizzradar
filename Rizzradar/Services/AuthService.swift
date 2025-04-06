@@ -3,7 +3,9 @@ import Foundation
 @MainActor
 class AuthService: ObservableObject {
     static let shared = AuthService()
-    private let baseURL = "http://localhost:5001/api/auth"
+    
+    // Use the provided IP address for the server
+    private let baseURL = "http://10.101.52.212:5001/api/auth"
     
     @Published var isAuthenticated = false
     @Published var currentUser: User?
@@ -21,7 +23,8 @@ class AuthService: ObservableObject {
             groups: [],
             createdAt: Date()
         )
-        self.authToken = "demo-token"
+        // Using a properly formatted JWT token for demo
+        self.authToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRlbW8tdXNlci1pZCIsImlhdCI6MTcxMDI0OTYwMCwiZXhwIjoxNzEwMzM2MDAwfQ.demo-signature"
     }
     
     func signUp(username: String, email: String, password: String) async throws {
@@ -34,7 +37,8 @@ class AuthService: ObservableObject {
             groups: [],
             createdAt: Date()
         )
-        self.authToken = "demo-token"
+        // Using a properly formatted JWT token for demo
+        self.authToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRlbW8tdXNlci1pZCIsImlhdCI6MTcxMDI0OTYwMCwiZXhwIjoxNzEwMzM2MDAwfQ.demo-signature"
     }
     
     func signOut() {

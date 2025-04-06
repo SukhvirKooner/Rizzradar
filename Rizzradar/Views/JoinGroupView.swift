@@ -3,70 +3,61 @@ import SwiftUI
 struct JoinGroupView: View {
     @Environment(\.dismiss) private var dismiss
     @StateObject private var groupService = GroupService.shared
-    @State private var inviteCode = ""
-    @State private var isLoading = false
-    @State private var errorMessage: String?
     
-    let onComplete: (Bool) -> Void
+    @State private var inviteCode = ""
+    @State private var showingError = false
+    @State private var errorMessage = ""
     
     var body: some View {
-        NavigationView {
-            Form {
-                Section {
-                    TextField("Invite Code", text: $inviteCode)
-                        .autocapitalization(.none)
-                        .disableAutocorrection(true)
-                }
-                
-                Section {
-                    Button(action: joinGroup) {
-                        if isLoading {
-                            ProgressView()
-                        } else {
-                            Text("Join Group")
-                        }
-                    }
-                    .disabled(inviteCode.isEmpty || isLoading)
-                }
+        Form {
+            Section {
+                TextField("Invite Code", text: $inviteCode)
+                    .textContentType(.none)
+                    .autocapitalization(.none)
+                    .disableAutocorrection(true)
             }
-            .navigationTitle("Join Group")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button("Cancel") {
-                        dismiss()
+            
+            Section {
+                Button(action: joinGroup) {
+                    if groupService.isLoading {
+                        ProgressView()
+                            .frame(maxWidth: .infinity)
+                    } else {
+                        Text("Join Group")
+                            .frame(maxWidth: .infinity)
                     }
                 }
+                .disabled(inviteCode.isEmpty || groupService.isLoading)
             }
-            .alert("Error", isPresented: .constant(errorMessage != nil)) {
-                Button("OK") { errorMessage = nil }
-            } message: {
-                Text(errorMessage ?? "")
+        }
+        .alert("Error", isPresented: $showingError) {
+            Button("OK", role: .cancel) {}
+        } message: {
+            Text(errorMessage)
+        }
+        .onChange(of: groupService.error) { error in
+            if let error = error {
+                errorMessage = error
+                showingError = true
             }
         }
     }
     
     private func joinGroup() {
-        isLoading = true
         Task {
             do {
                 _ = try await groupService.joinGroup(inviteCode: inviteCode)
-                await MainActor.run {
-                    onComplete(true)
-                    dismiss()
-                }
+                dismiss()
             } catch {
-                await MainActor.run {
-                    errorMessage = error.localizedDescription
-                    isLoading = false
-                }
+                errorMessage = error.localizedDescription
+                showingError = true
             }
         }
     }
 }
 
-struct JoinGroupView_Previews: PreviewProvider {
-    static var previews: some View {
-        JoinGroupView { _ in }
+#Preview {
+    NavigationView {
+        JoinGroupView()
     }
 } 

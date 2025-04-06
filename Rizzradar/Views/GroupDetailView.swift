@@ -2,10 +2,13 @@ import SwiftUI
 
 struct GroupDetailView: View {
     let group: Group
-    @State private var members: [User] = []
-    @State private var isLoading = false
-    @State private var errorMessage: String?
-    @State private var showingInviteCode = false
+    @StateObject private var viewModel: GroupDetailViewModel
+    @Environment(\.dismiss) private var dismiss
+    
+    init(group: Group) {
+        self.group = group
+        self._viewModel = StateObject(wrappedValue: GroupDetailViewModel(group: group))
+    }
     
     var body: some View {
         List {
@@ -15,29 +18,34 @@ struct GroupDetailView: View {
                         .foregroundColor(.secondary)
                 }
                 
-                Button(action: { showingInviteCode.toggle() }) {
+                Button(action: { viewModel.showingInviteCode.toggle() }) {
                     HStack {
                         Text("Invite Code")
                         Spacer()
-                        if showingInviteCode {
+                        if viewModel.showingInviteCode {
                             Text(group.inviteCode)
-                                .foregroundColor(.secondary)
+                                .foregroundColor(.blue)
                         } else {
                             Text("Tap to show")
-                                .foregroundColor(.secondary)
+                                .foregroundColor(.gray)
                         }
                     }
                 }
             }
             
-            Section("Members (\(members.count))") {
-                if isLoading {
+            Section(header: Text("Members (\(viewModel.members.count))")) {
+                if viewModel.isLoading {
                     ProgressView()
+                        .frame(maxWidth: .infinity, alignment: .center)
+                } else if viewModel.members.isEmpty && viewModel.errorMessage == nil {
+                    Text("No members found")
+                        .foregroundColor(.secondary)
+                        .frame(maxWidth: .infinity, alignment: .center)
                 } else {
-                    ForEach(members) { member in
+                    ForEach(viewModel.members) { member in
                         HStack {
                             Text(member.username)
-                            if member.id == group.creator.id {
+                            if member.id == group.creator {
                                 Spacer()
                                 Text("Creator")
                                     .font(.caption)
@@ -49,24 +57,85 @@ struct GroupDetailView: View {
             }
         }
         .navigationTitle(group.name)
-        .alert("Error", isPresented: .constant(errorMessage != nil)) {
-            Button("OK") { errorMessage = nil }
+        .navigationBarTitleDisplayMode(.inline)
+        .alert("Error", isPresented: $viewModel.showingError) {
+            Button("Retry") {
+                Task {
+                    await viewModel.loadMembers()
+                }
+            }
+            Button("OK", role: .cancel) {
+                viewModel.dismissError()
+            }
         } message: {
-            Text(errorMessage ?? "")
+            if let error = viewModel.errorMessage {
+                Text(error)
+            }
+        }
+        .refreshable {
+            await viewModel.loadMembers()
         }
         .task {
-            await loadMembers()
+            await viewModel.loadMembers()
         }
     }
+}
+
+@MainActor
+class GroupDetailViewModel: ObservableObject {
+    private let group: Group
+    private let groupService = GroupService.shared
+    private var loadingTask: Task<Void, Never>?
     
-    private func loadMembers() async {
-        isLoading = true
-        do {
-            members = try await GroupService.shared.getGroupMembers(groupId: group.id)
-        } catch {
-            errorMessage = error.localizedDescription
+    @Published var members: [User] = []
+    @Published var isLoading = false
+    @Published var errorMessage: String?
+    @Published var showingError = false
+    @Published var showingInviteCode = false
+    
+    init(group: Group) {
+        self.group = group
+    }
+    
+    func loadMembers() async {
+        guard !isLoading else { return }
+        
+        // Cancel any existing loading task
+        loadingTask?.cancel()
+        
+        let task = Task {
+            isLoading = true
+            errorMessage = nil
+            showingError = false
+            
+            do {
+                let loadedMembers = try await groupService.getGroupMembers(groupId: group.id)
+                if !Task.isCancelled {
+                    members = loadedMembers
+                }
+            } catch {
+                if !Task.isCancelled {
+                    errorMessage = error.localizedDescription
+                    showingError = true
+                }
+            }
+            
+            if !Task.isCancelled {
+                isLoading = false
+            }
         }
-        isLoading = false
+        
+        loadingTask = task
+        await task.value
+    }
+    
+    func dismissError() {
+        errorMessage = nil
+        showingError = false
+    }
+    
+    deinit {
+        loadingTask?.cancel()
     }
 }
 
@@ -77,8 +146,8 @@ struct GroupDetailView_Previews: PreviewProvider {
                 id: "1",
                 name: "Test Group",
                 description: "A test group",
-                creator: User(id: "1", username: "test", email: "test@example.com", groups: [], createdAt: Date()),
-                members: [],
+                creator: "1",
+                members: ["1"],
                 inviteCode: "ABC123",
                 createdAt: Date()
             ))
