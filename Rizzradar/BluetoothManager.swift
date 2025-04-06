@@ -63,7 +63,7 @@ class BluetoothManager: NSObject, ObservableObject {
     private func calculateApproximateDistance(rssi: Int) -> Double {
         // Simple distance estimation based on RSSI
         // This is a basic implementation and might need calibration
-        let txPower = -59 // Calibrated RSSI at 1 meter
+        let txPower = -62 // Calibrated RSSI at 1 meter
         if rssi == 0 {
             return -1.0
         }

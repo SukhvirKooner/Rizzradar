@@ -59,41 +59,36 @@ struct NearbyFriendsView: View {
                         }
                     }
                 }
-                
-                // Menu button
-                VStack {
-                    HStack {
-                        Spacer()
-                        Menu {
-                            Button(action: {
-                                if bluetoothManager.isScanning {
-                                    bluetoothManager.stopScanning()
-                                } else {
-                                    bluetoothManager.startScanning()
-                                }
-                            }) {
-                                Label(
-                                    bluetoothManager.isScanning ? "Stop Scanning" : "Start Scanning",
-                                    systemImage: bluetoothManager.isScanning ? "stop.circle" : "play.circle"
-                                )
-                            }
-                            
-                            Button(role: .destructive, action: {
-                                authService.signOut()
-                            }) {
-                                Label("Sign Out", systemImage: "rectangle.portrait.and.arrow.right")
-                            }
-                        } label: {
-                            Image(systemName: "ellipsis.circle")
-                                .font(.title2)
-                                .foregroundColor(.blue)
-                        }
-                        .padding()
-                    }
-                    Spacer()
-                }
             }
             .navigationTitle("Nearby Friends")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Menu {
+                        Button(action: {
+                            if bluetoothManager.isScanning {
+                                bluetoothManager.stopScanning()
+                            } else {
+                                bluetoothManager.startScanning()
+                            }
+                        }) {
+                            Label(
+                                bluetoothManager.isScanning ? "Stop Scanning" : "Start Scanning",
+                                systemImage: bluetoothManager.isScanning ? "stop.circle" : "play.circle"
+                            )
+                        }
+                        
+                        Button(role: .destructive, action: {
+                            authService.signOut()
+                        }) {
+                            Label("Sign Out", systemImage: "rectangle.portrait.and.arrow.right")
+                        }
+                    } label: {
+                        Image(systemName: "ellipsis.circle")
+                            .font(.title2)
+                            .foregroundColor(.blue)
+                    }
+                }
+            }
         }
         .onAppear {
             locationManager.requestAuthorization()
