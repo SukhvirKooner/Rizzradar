@@ -12,8 +12,7 @@ class AuthService: ObservableObject {
     @Published var authToken: String?
     
     private init() {}
-    
-    
+
     func signIn(email: String, password: String) async throws {
         // Demo: Skip backend call and directly authenticate
         self.isAuthenticated = true
